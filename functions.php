@@ -139,13 +139,18 @@ add_action( 'widgets_init', 'wflorianski_widgets_init' );
  */
 function wflorianski_scripts() {
 	wp_enqueue_style( 'wflorianski-style', get_stylesheet_uri(), array(), _S_VERSION );
-	wp_style_add_data( 'wflorianski-style', 'rtl', 'replace' );
+	
+	// Main style
+	wp_enqueue_style( 'wflorianski-custom-style', get_template_directory_uri() . '/css/style.css', array(), _S_VERSION );
 
-	wp_enqueue_script( 'wflorianski-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
+	// jQuery
+	wp_register_script( 'jQuery', get_template_directory_uri() . '/plugins/jQuery/jquery-3.6.0.min.js', null, null, true );
+	wp_enqueue_script('jQuery');
 
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	// Main script
+	wp_register_script( 'wflorianski-script', get_template_directory_uri() . '/js/custom.js', null, null, true );
+	wp_enqueue_script('wflorianski-script');
+	wp_localize_script( 'wflorianski-script', 'wf', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ) ) );
 }
 add_action( 'wp_enqueue_scripts', 'wflorianski_scripts' );
 
@@ -176,3 +181,19 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+/**
+ * Disable WordPress Admin Bar for all users
+ */
+add_filter( 'show_admin_bar', '__return_false' );
+
+/**
+ * String translations
+ */
+add_action('init', function() {
+	pll_register_string('wflorainski', 'Wszystkie parwa zastrzeżone.');
+	pll_register_string('wflorainski', 'Polityka Cookies');
+	pll_register_string('wflorainski', 'Czujesz to samo?');
+	pll_register_string('wflorainski', 'Skontaktuj się ze mną i obserwuj');
+	pll_register_string('wflorainski', 'O mnie');
+	pll_register_string('wflorainski', 'Inne posty, które mogą Ci się spodobać');
+});

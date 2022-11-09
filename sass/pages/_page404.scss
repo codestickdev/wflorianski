@@ -1,0 +1,23 @@
+.page404{
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        font-size: 150px;
+        line-height: 1;
+        font-family: 'Playfair', sans-serif;
+        margin: -100px 0 0;
+        text-align: center;
+        color: #000;
+    }
+}
+@media (max-width: 991px){
+    .page404{
+        h1{
+            font-size: 100px;
+            margin: -50px 0 0;
+        }
+    }
+}

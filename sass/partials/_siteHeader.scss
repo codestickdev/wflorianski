@@ -1,0 +1,213 @@
+.siteHeader{
+    width: 100%;
+    min-height: 100px;
+    background-color: #fff;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+    z-index: 999;
+    transition: ease .3s;
+
+    &__menu{
+        display: flex;
+        align-items: center;
+
+        .menu-toggle{
+            width: 25px;
+            height: 25px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0;
+            background: unset;
+            border: 0;
+            border-radius: 0;
+
+            span{
+               width: 20px;
+               height: 2px;
+               background-color: #000;
+               border-radius: 3px; 
+               margin: 0 0 5px;
+
+               &:last-of-type{
+                   margin: 0;
+               }
+            }
+        }
+        .lang{
+            list-style: none;
+            padding: 0;
+            margin: 0 35px 0 0;
+
+            li{
+                a{
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #000;
+                    text-transform: uppercase;
+                    transition: ease .3s;
+    
+                    &:hover{
+                        opacity: .75;
+                    }
+                }
+            }
+        }
+        ul{
+            display: flex;
+            align-items: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            li{
+                margin-right: 35px;
+                position: relative;
+
+                &:last-of-type{
+                    margin-right: 0;
+                }
+
+                &.menu-item-has-children{
+                    &>a{
+                        position: relative;
+                        z-index: 11;
+                    }
+                    &:hover{
+                        .sub-menu{
+                            z-index: 10;
+                            display: block !important;
+                        }
+                    }
+                }
+
+                a{
+                    font-size: 14px;
+                    line-height: 19px;
+                    color: #000;
+                    transition: ease .3s;
+
+                    &:hover{
+                        opacity: .75;
+                    }
+                }
+
+                .sub-menu{
+                    display: none !important;
+                    position: absolute;
+                    top: 20px;
+                    left: 0;
+                    background: #fff;
+                    width: 150px;
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    padding: 10px 20px;
+
+                    li{
+                        margin: 0 0 5px;
+
+                        &:last-of-type{
+                            margin: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__logo{
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        top: 50%;
+        transform: translate(0, -50%);
+        max-width: fit-content;
+        max-width: -moz-max-content;
+        max-width: -webkit-fit-content;
+
+        a{
+            font-size: 20px;
+            line-height: 1;
+            font-weight: 300;
+            color: #000;
+            text-align: center;
+            margin: 0;
+        }
+    }
+    &__social{
+        display: flex;
+        align-items: center;
+
+        a{
+            font-size: 14px;
+            line-height: 19px;
+            margin-right: 25px;
+            color: #000;
+            transition: ease .3s;
+
+            &:hover{
+                opacity: .75;
+            }
+
+            &.instagram{
+                display: block;
+                width: 33px;
+                height: 33px;
+                margin-right: 0;
+    
+                img{
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+            }
+        }
+    }
+    &--shadow{
+        box-shadow: 0 0 30px #00000029;
+    }
+    &--scrolled{
+        top: -110px;
+    }
+}
+@media (max-width: 767px){
+    .siteHeader{
+        min-height: 60px;
+        padding: 0 15px;
+
+        &__menu{
+            .menu-toggle{
+                display: flex;
+            }
+            .lang{
+                display: none;
+            }
+            ul{
+                display: none;
+            }
+        }
+        &__logo{
+            a{
+                font-size: 16px;
+            }
+        }
+        &__social{
+            a{
+                &.instagram{
+                    width: 25px;
+                    height: 25px;
+                }
+            }
+        }
+        &--scrolled{
+            top: -70px;
+        }
+    }
+}

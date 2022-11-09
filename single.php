@@ -7,34 +7,59 @@
  * @package Wojciech_Floriański
  */
 
-get_header();
+get_header(); 
+$currentPost = get_the_ID();
 ?>
 
 	<main id="primary" class="site-main">
+		<section class="postHeading">
+			<div class="postHeading__wrap">
+				<img src="<?php echo get_the_post_thumbnail_url(); ?>" />
+				<div class="postHeading__content">
+					<h1><?php echo get_the_title(); ?></h1>
+					<p class="lead"><?php echo get_field('article_lead'); ?></p>
+					<p class="date"><?php echo get_the_date('j F, Y') ?></p>
+				</div>
+			</div>
+		</section>
+		<section class="postContent">
+			<?php the_content(); ?>
+		</section>
+		<section class="postOther">
+			<div class="postOther__heading">
+				<h2><?php pll_e('Inne posty, które mogą Ci się spodobać'); ?></h2>
+			</div>
+			<div class="postOther__list">
+				<?php 
+				$args = array(
+					'posts_per_page'    => 3,
+					'post_type'         => 'post',
+					'post_status'       => 'publish',
+					'orderby'			=> 'rand',
+					'post__not_in' 		=> array($currentPost),
+				);
+				$other = new WP_Query( $args ); ?>
+				<?php if( $other->have_posts() ): ?>
+					<?php while( $other->have_posts() ) : $other->the_post(); ?>
+						<article class="postOther__article article">
+							<a href="<?php the_permalink(); ?>">
+								<div class="article__thumb">
+									<img src="<?php echo get_the_post_thumbnail_url(); ?>" />
+								</div>
+								<div class="article__content">
+									<h2><?php echo get_the_title(); ?></h2>
+									<p class="lead"><?php echo get_field('article_lead'); ?></p>
+									<p class="date"><?php echo get_the_date('j F, Y') ?></p>
+								</div>
+							</a>
+						</article>
+					<?php endwhile; ?>
+				<?php endif; ?>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
-
-			get_template_part( 'template-parts/content', get_post_type() );
-
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'wflorianski' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'wflorianski' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
-
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
+				<?php wp_reset_query(); ?>  
+			</div>
+		</section>
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();
