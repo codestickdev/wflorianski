@@ -50,6 +50,7 @@ function wflorianski_setup() {
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'wflorianski' ),
+			'menu-mobile' => esc_html__( 'Mobile', 'wflorianski' ),
 		)
 	);
 

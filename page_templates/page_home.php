@@ -42,8 +42,8 @@ get_header(); ?>
             );
             $homeposts = new WP_Query( $args ); ?>
             <?php if( $homeposts->have_posts() ): ?>
-                <?php while( $homeposts->have_posts() ) : $homeposts->the_post(); $count++; ?>
-                    <article class="homePosts__article article<?php if($count % 4 == 0): ?> article--big<?php endif; ?>">
+                <?php while( $homeposts->have_posts() ) : $homeposts->the_post(); // $count++; ?>
+                    <article class="homePosts__article article">
                         <a href="<?php the_permalink(); ?>">
                             <img src="<?php echo get_the_post_thumbnail_url(); ?>" />
                             <div class="article__content">

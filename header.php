@@ -54,3 +54,11 @@
 		</div>
 	</header><!-- #masthead -->
 	<div class="header-clone"></div>
+	<div class="menuMobile">
+		<div class="menuMobile__wrap">
+			<?php wp_nav_menu(array('theme_location' => 'menu-mobile', 'menu_id' => 'mobile-menu')); ?>
+		</div>
+		<div class="menuMobile__lang">
+			<?php pll_the_languages($langattr); ?>
+		</div>
+	</div>

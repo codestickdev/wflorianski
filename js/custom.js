@@ -55,4 +55,44 @@
             }
         }, 150);
     });
+
+    /**
+     * Menu mobile toggler
+     */
+    $(document).ready(function(){
+        $('.menu-toggle').on('click', function(){
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+    
+                $('.menuMobile').removeClass('menuMobile--active');
+                setTimeout(function(){
+                    $('.menuMobile').removeClass('menuMobile--ready');
+                }, 300);
+            }else{
+                $(this).addClass('active');
+
+                $('.menuMobile').addClass('menuMobile--ready');
+                setTimeout(function(){
+                    $('.menuMobile').addClass('menuMobile--active');
+                }, 500);
+            }
+        });
+    });
+
+    /**
+     * Menu mobile sub-menu switcher
+     */
+    $(document).ready(function(){
+        var li = $('.menuMobile').find('.menu-item-has-children');
+        var link = li.find('a').first();
+        var href = link.attr('href');
+        var text = link.text();
+
+        link.replaceWith('<div class="link"><a href="' + href + '">' + text + '</a><span class="open-sub-menu"></span></div>');
+
+        $('.open-sub-menu').on('click', function(){
+            $(this).toggleClass('active');
+            $(this).parents('.menu-item-has-children').find('.sub-menu').slideToggle();
+        });
+    });
 }(jQuery));
