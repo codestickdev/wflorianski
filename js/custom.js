@@ -1,6 +1,13 @@
 (function($){
 
     /**
+     * Mouse right click disable
+     */
+    $(document.body).on('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    /**
      * Site header clone
      */
     $(document).ready(function(){

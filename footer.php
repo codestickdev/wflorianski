@@ -17,7 +17,7 @@
 				<p>© <?php echo current_time('Y'); ?> Wojciech Florianski. <?php pll_e('Wszystkie parwa zastrzeżone.'); ?> <a href="<?php echo get_permalink(pll_get_post(69)); ?>"><?php pll_e('Polityka Cookies'); ?></a></p>
 			</div>
 			<div class="author">
-				<p>Designed by <a href="https://flodesign.stuido/">flodesign.studio</a></p>
+				<p>Designed by <a href="https://flodesign.studio/">flodesign.studio</a></p>
 			</div>
 		</div>
 	</footer><!-- #colophon -->

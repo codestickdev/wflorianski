@@ -48,7 +48,7 @@
 		</div>
 		<div class="siteHeader__social">
 			<a href="<?php echo get_permalink(pll_get_post(64)) ?>"><?php pll_e('O mnie'); ?></a>
-			<a href="#" class="instagram">
+			<a href="https://www.instagram.com/wojciech.florianski/" target="_blank" class="instagram">
 				<img src="<?php echo get_template_directory_uri() . '/images/icons/ig_ico.svg'; ?>" />
 			</a>
 		</div>

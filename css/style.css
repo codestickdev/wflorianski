@@ -214,14 +214,8 @@ body button {
   margin-right: 30px;
   transition: ease 0.3s;
 }
-.homePosts__list .article:last-of-type {
-  margin-bottom: 0;
-}
 .homePosts__list .article:hover {
   opacity: 0.95;
-}
-.homePosts__list .article:nth-child(3n-0) {
-  margin-right: 0;
 }
 .homePosts__list .article a {
   display: block;
@@ -269,12 +263,21 @@ body button {
   line-height: 18px;
   margin: 0;
 }
-.homePosts__list .article--big {
+.homePosts__list--list .article:nth-child(3n-0) {
+  margin-right: 0;
+}
+.homePosts__list--extra .article:last-of-type {
+  margin-bottom: 0;
+}
+.homePosts__list--extra .article:nth-child(4n-0) {
+  margin-right: 0;
+}
+.homePosts__list--extra .article--big {
   width: 100%;
   padding-bottom: 50%;
   margin-right: 0;
 }
-.homePosts__list .article--big .article__content h2 {
+.homePosts__list--extra .article--big .article__content h2 {
   font-size: 35px;
   line-height: 47px;
 }
@@ -1021,20 +1024,22 @@ body button {
 .aboutSidebar .instagram span {
   display: block;
   font-size: 16px;
+  font-weight: 700;
   line-height: 1;
   color: #000;
-  font-weight: 300;
   margin: 0;
 }
 .aboutSidebar .logos {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin: 70px 0 0;
 }
 .aboutSidebar .logos img {
   width: 100%;
   max-width: calc(50% - 6px);
+  margin: 0 0 10px;
 }
 
 @media (max-width: 1499px) {
