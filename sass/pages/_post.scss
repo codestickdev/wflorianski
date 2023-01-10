@@ -136,6 +136,11 @@
         position: relative;
         left: -200px;
 
+        &.size-medium{
+            width: 100%;
+            left: auto;
+        }
+
         img{
             width: 100%;
         }

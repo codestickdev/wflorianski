@@ -774,6 +774,10 @@ body button {
   position: relative;
   left: -200px;
 }
+.postContent .wp-block-image.size-medium {
+  width: 100%;
+  left: auto;
+}
 .postContent .wp-block-image img {
   width: 100%;
 }
