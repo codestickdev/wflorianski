@@ -3,9 +3,12 @@
     /**
      * Mouse right click disable
      */
-    $(document.body).on('contextmenu', function(e) {
-        e.preventDefault();
-    });
+    if(!$('body').hasClass('logged-in')){
+        $(document.body).on('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    }
+    
 
     /**
      * Site header clone

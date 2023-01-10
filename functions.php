@@ -191,10 +191,32 @@ add_filter( 'show_admin_bar', '__return_false' );
  * String translations
  */
 add_action('init', function() {
-	pll_register_string('wflorainski', 'Wszystkie parwa zastrzeżone.');
+	pll_register_string('wflorainski', 'Wszystkie prawa zastrzeżone.');
 	pll_register_string('wflorainski', 'Polityka Cookies');
 	pll_register_string('wflorainski', 'Czujesz to samo?');
 	pll_register_string('wflorainski', 'Skontaktuj się ze mną i obserwuj');
 	pll_register_string('wflorainski', 'O mnie');
 	pll_register_string('wflorainski', 'Inne posty, które mogą Ci się spodobać');
 });
+
+/**
+ * Register ACF Blocks
+ */
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+		// Opis i wylgąd rasy
+        acf_register_block_type(array(
+            'name'              => 'fleximage',
+            'title'             => __('Dwa zdjęcia'),
+            'description'       => __('Wyświetla dwa zdjęcia obok siebie.'),
+            'render_template'   => 'blocks/fleximage/fleximage.php',
+            'category'          => 'formatting',
+            'icon'              => 'admin-comments',
+            'keywords'          => array('fleximage', 'zdjecia', 'image'),
+        ));
+    }
+}

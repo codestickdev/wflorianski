@@ -160,8 +160,17 @@
     
                     .article__content{
                         h2{
-                            font-size: 35px;
-                            line-height: 47px;
+                            font-size: 58px;
+                            line-height: 68px;
+                        }
+                        p{
+                            &.lead{
+                                font-size: 21px;
+                                line-height: 28px;
+                            }
+                            &.date{
+                                font-size: 14px;
+                            }
                         }
                     }
                 }
