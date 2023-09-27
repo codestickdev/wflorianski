@@ -1002,7 +1002,7 @@ body button {
 .aboutSidebar h3 {
   font-size: 16px;
   line-height: 22px;
-  font-weight: 300;
+  font-weight: 800;
   text-transform: uppercase;
   margin: 0 0 20px;
   color: #000;
@@ -1034,8 +1034,8 @@ body button {
 }
 .aboutSidebar .instagram span {
   display: block;
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 16px;
+  font-weight: 800;
   line-height: 1;
   color: #000;
   margin: 0;
